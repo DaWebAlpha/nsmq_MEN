@@ -2,6 +2,10 @@ import dotenv from 'dotenv';
 import { AppError } from "../errors/app.error.js";
 dotenv.config();
 
+/**
+ * Configuration module that loads environment variables, validates their presence, 
+ * and exports a configuration object for the application.
+ */
 const {
     PORT,
     MONGO_URI,
@@ -28,6 +32,10 @@ const {
     MAIL_FROM,
 } = process.env;
 
+
+/**
+ * Validates that all required environment variables are present and non-empty.
+ */
 
 const configEnvs = {
     MONGO_URI,
@@ -57,12 +65,18 @@ for (const [key, values] of Object.entries(configEnvs)){
 }
 
 
+/**
+ * Helper function to convert environment variable values to numbers with a fallback option
+*/
 const toNumber = (value, fallback) => {
     const parsed = Number(value);
     return Number.isFinite(parsed) ? parsed : fallback;
 }
 
 
+/**
+ * Configuration object that holds all the necessary configuration values for the application.
+ */
 const config = {
     port: toNumber(PORT, 3200),
     mongo_uri: MONGO_URI,
