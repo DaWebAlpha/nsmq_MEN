@@ -15,9 +15,6 @@ const {
     MAX_FAILED_ATTEMPTS,
     LOCK_DURATION,
     JWT_ACCESS_SECRET,
-    JWT_REFRESH_SECRET,
-    JWT_ACCESS_EXPIRES_IN,
-    JWT_REFRESH_EXPIRES_IN,
     GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET,
     GOOGLE_CALLBACK_URL,
@@ -41,9 +38,6 @@ const configEnvs = {
     MONGO_URI,
     REDIS_URI,
     JWT_ACCESS_SECRET,
-    JWT_REFRESH_SECRET,
-    JWT_ACCESS_EXPIRES_IN,
-    JWT_REFRESH_EXPIRES_IN,
     GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET,
     GOOGLE_CALLBACK_URL,
@@ -84,11 +78,8 @@ const config = {
     log_level: LOG_LEVEL || 'info',
     redis_uri: REDIS_URI,
     max_failed_attempts: toNumber(MAX_FAILED_ATTEMPTS, 5),
-    lock_duration: toNumber(LOCK_DURATION, 300),
+    lock_duration: toNumber(LOCK_DURATION, 900000),
     jwt_access_secret: JWT_ACCESS_SECRET,
-    jwt_refresh_secret: JWT_REFRESH_SECRET,
-    jwt_access_expires_in: JWT_ACCESS_EXPIRES_IN,
-    jwt_refresh_expires_in: JWT_REFRESH_EXPIRES_IN,
     google_client_id: GOOGLE_CLIENT_ID,
     google_client_secret: GOOGLE_CLIENT_SECRET,
     google_callback_url: GOOGLE_CALLBACK_URL,
@@ -97,11 +88,10 @@ const config = {
     cloudinary_api_secret: CLOUDINARY_API_SECRET,
     mail_host: MAIL_HOST,
     mail_port: toNumber(MAIL_PORT, 587),
-    mail_secure: MAIL_SECURE === "true",
+    mail_secure: MAIL_SECURE,
     mail_user: MAIL_USER,
     mail_pass: MAIL_PASS,
     mail_from: MAIL_FROM
-
 }
 
 export { config };

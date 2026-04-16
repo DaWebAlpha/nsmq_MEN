@@ -90,11 +90,9 @@ const accessTransport = pino.transport({
 });
 
 /*
-
 |--------------------------------------------------------------------------
 | BASE LOGGER CONFIGURATION
 |--------------------------------------------------------------------------
-
 | Shared settings for all loggers including security redaction.
 */
 const getBaseConfig = () => ({
